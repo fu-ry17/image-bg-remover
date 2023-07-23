@@ -4,9 +4,9 @@
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "image-bg-remover",
-    "short_name": "image-bg-remover",
-    "description": "A modern backround remover app",
+    "name": "Image Bg Remover",
+    "short_name": "Image Bg Remover",
+    "description": "a modern background remover app",
     "icons": [
         {
             "src": "/icon-192x192.png",
