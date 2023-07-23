@@ -6,6 +6,7 @@ import { Separator } from './separator';
 import ImagesComponent from './images-component';
 import { removeBackground } from '@/actions/removeBg';
 import imageStore from '@/store/imageStore';
+import { toast } from 'react-hot-toast';
 
 const Dropzone = () => {
   const [imageUrl, setImageUrl] = useState<File | null>(null)
@@ -21,9 +22,10 @@ const Dropzone = () => {
         const resultUrl = await removeBackground(file);
         setRemovedBg(resultUrl);
         addImage({ url: resultUrl })
+        toast.success("image background removed")
       } catch (error) {
         if(error instanceof Error){
-          console.error(error.message);
+          toast.error(error.message)
           setRemovedBg(null);
         }
       }

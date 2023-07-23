@@ -2,6 +2,8 @@
 import React, { useState } from 'react'
 import { v4 as uuid } from 'uuid'
 import { Button } from './button'
+import { toast } from 'react-hot-toast'
+import { Loader2 } from 'lucide-react'
 
 const Download = ({ image}: { image: string }) => {
     const [load, setLoad] = useState<boolean>(false)
@@ -17,10 +19,11 @@ const Download = ({ image}: { image: string }) => {
         link.click();
         document.body.removeChild(link);
         setLoad(false)
+        toast.success("image downloaded")
     };
   
   return (
-    <Button disabled={load} onClick={downloadImage} className='w-full'> Download </Button>
+    <Button disabled={load} onClick={downloadImage} className='w-full'> { load ? <Loader2 className='animate-spin'/> : 'Download' } </Button>
   )
 }
 
